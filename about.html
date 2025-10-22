@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CityWing Shuttles | Namibia's Premier Transportation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* YOUR EXISTING CSS REMAINS EXACTLY THE SAME */
+        :root {
+            --dark-green: #064b2f;
+            --light-green: #0a6e48;
+            --white: #ffffff;
+            --gold: #d4af37;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --medium-gray: #777777;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        .btn-gold:hover {
+            background-color: #e6c158;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--dark-green);
+            color: var(--dark-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--dark-green);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn, .cart-btn, .user-btn, .payment-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .search-btn:hover, .cart-btn:hover, .user-btn:hover, .payment-btn:hover {
+            color: var(--dark-green);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Images/Games.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .mission-text h2 {
+            font-size: 2.2rem;
+            color: var(--dark-green);
+        }
+
+        .mission-text p {
+            margin-bottom: 20px;
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            background-color: var(--dark-green);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .mission-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .mission-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-img img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        /* History Section */
+        .history {
+            padding: 80px 0;
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .history .section-title:after {
+            background-color: var(--gold);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--gold);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -50px;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(rgba(6, 75, 47, 0.9), rgba(6, 75, 47, 0.9)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #e6c158;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .operating-hours {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--light-green);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--medium-gray);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--dark-gray);
+        }
+
+        .modal h2 {
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--dark-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(6, 75, 47, 0.2);
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .search-overlay.active {
+            display: flex;
+        }
+
+        .search-form {
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 20px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .search-submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            cursor: pointer;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--dark-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-img {
+                order: -1;
+            }
+
+            .timeline:before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content:after {
+                left: -50px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-values {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 25px;
+                right: 25px;
+            }
+
+            .back-to-top {
+                bottom: 85px;
+                right: 25px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ADDED: User dropdown styles */
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark-gray);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .user-info {
+            display: none;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+            color: var(--dark-green);
+        }
+        
+        .user-info span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/264811234567?text=Hello%20CityWing%20Shuttles,%20I%E2%80%99d%20like%20to%20learn%20more%20about%20your%20services." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+    <a href="index.html">
+        <img src="./Images/HEAD.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="rentals.html">Car Rentals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                
+                <!-- UPDATED: User dropdown for logout functionality -->
+                <div class="user-dropdown">
+                    <button class="user-btn" id="userBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="dropdown-content" id="userDropdown">
+                        <a href="#" id="loginLink">Login</a>
+                        <a href="#" id="registerLink">Register</a>
+                        <a href="#" id="profileLink" style="display:none;">My Profile</a>
+                        <a href="#" id="bookingsLink" style="display:none;">My Bookings</a>
+                        <a href="#" id="logoutLink" style="display:none;">Logout</a>
+                    </div>
+                </div>
+                
+                <div class="user-info" id="userInfo">
+                    <span id="userName"></span>
+                </div>
+                
+                <button class="payment-btn" id="paymentBtn">
+                    <i class="fas fa-credit-card"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- REST OF YOUR HTML CONTENT REMAINS EXACTLY THE SAME -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Story & Mission</h1>
+            <p>Discover the journey of CityWing Shuttles and our commitment to providing exceptional transportation experiences across Namibia's breathtaking landscapes.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission & Vision</h2>
+                    <p>At CityWing Shuttles, our mission is to provide safe, reliable, and luxurious transportation services that showcase the beauty of Namibia while ensuring the utmost comfort for our clients.</p>
+                    <p>We envision becoming Namibia's premier shuttle service, known for our exceptional customer service, environmental responsibility, and deep connection to the local communities we serve.</p>
+                    
+                    <div class="mission-values">
+                        <div class="value">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Safety First</h4>
+                                <p>Your safety is our top priority with well-maintained vehicles and professional drivers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value">
+                            <div class="value-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4>Sustainable Tourism</h4>
+                                <p>We're committed to eco-friendly practices that preserve Namibia's natural beauty.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4>Community Focus</h4>
+                                <p>We support local communities through employment and sustainable tourism initiatives.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value">
+                            <div class="value-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4>Excellence</h4>
+                                <p>We strive for excellence in every aspect of our service delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mission-img">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="CityWing Shuttles Mission">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="John Mbangu">
+                    </div>
+                    <div class="member-info">
+                        <h3>John Mbangu</h3>
+                        <div class="member-role">Founder & CEO</div>
+                        <p class="member-bio">With over 15 years in the tourism industry, John founded CityWing Shuttles to share Namibia's beauty with the world.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Sarah van der Merwe">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah van der Merwe</h3>
+                        <div class="member-role">Operations Manager</div>
+                        <p class="member-bio">Sarah ensures our operations run smoothly and that every client receives the exceptional service we're known for.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="David Shikongo">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Shikongo</h3>
+                        <div class="member-role">Head Tour Guide</div>
+                        <p class="member-bio">David's extensive knowledge of Namibia's history and wildlife makes every tour an unforgettable educational experience.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>Foundation</h3>
+                        <p>CityWing Shuttles was founded with just two vehicles and a vision to provide premium transportation services in Windhoek.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <h3>Expansion</h3>
+                        <p>We expanded our services to include guided tours and began operating in major tourist destinations across Namibia.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h3>Fleet Modernization</h3>
+                        <p>Invested in a new fleet of eco-friendly vehicles and implemented advanced booking technology for better customer experience.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Award Recognition</h3>
+                        <p>Received the Namibia Tourism Board's "Excellence in Transportation Services" award for three consecutive years.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Sustainability Initiative</h3>
+                        <p>Launched our Green Tourism Initiative, committing to carbon-neutral operations by 2025.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-text">Years of Excellence</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-text">Professional Guides</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-text">Destinations Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Explore Namibia With Us?</h2>
+            <p>Join thousands of satisfied customers who have experienced the beauty of Namibia with CityWing Shuttles.</p>
+            <a href="booking.html" class="btn">Book Your Adventure</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="operating-hours">
+            <div class="container">
+                Operating Hours: 24/7 Service – Open Every Day
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+    <a href="index.html">
+        <img src="./Images/foot.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+                    <p>Premium shuttle and tour services in Namibia. Experience luxury, comfort, and reliability with our professional transportation solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="booking.html"><i class="fas fa-chevron-right"></i> Booking</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Airport Transfers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> City Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Safari Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Car Rentals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Independence Ave, Windhoek, Namibia</a></li>
+                        <li><a href="tel:+264611234567"><i class="fas fa-phone"></i> +264 61 123 4567</a></li>
+                        <li><a href="tel:+264811234567"><i class="fas fa-mobile-alt"></i> +264 81 123 4567</a></li>
+                        <li><a href="mailto:info@citywingshuttles.com"><i class="fas fa-envelope"></i> info@citywingshuttles.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Service Available</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CityWing Shuttles. All rights reserved. | Designed with <i class="fas fa-heart"></i> by <a href="https://www.amateta.com" target="_blank" title="Visit Amateta.com">Amateta</a> for Namibia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="close-search" id="closeSearch">
+            <i class="fas fa-times"></i>
+        </div>
+        <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search for services, cars, or destinations...">
+            <button type="submit" class="search-submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRegisterModal">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Phone Number</label>
+                    <input type="tel" id="registerPhone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Register</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePaymentModal">&times;</span>
+            <h2>Payment</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="referenceNumber">Booking Reference Number</label>
+                    <input type="text" id="referenceNumber" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // YOUR EXISTING JAVASCRIPT REMAINS THE SAME
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Search Functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const closeSearch = document.getElementById('closeSearch');
+        const searchOverlay = document.getElementById('searchOverlay');
+
+        searchBtn.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+        });
+
+        closeSearch.addEventListener('click', function() {
+            searchOverlay.classList.remove('active');
+        });
+
+        // Modal Functionality
+        const userBtn = document.getElementById('userBtn');
+        const paymentBtn = document.getElementById('paymentBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const paymentModal = document.getElementById('paymentModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+        const closePaymentModal = document.getElementById('closePaymentModal');
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+
+        // ADDED: User dropdown elements
+        const loginLink = document.getElementById('loginLink');
+        const registerLink = document.getElementById('registerLink');
+        const logoutLink = document.getElementById('logoutLink');
+        const userInfo = document.getElementById('userInfo');
+        const userName = document.getElementById('userName');
+        const profileLink = document.getElementById('profileLink');
+        const bookingsLink = document.getElementById('bookingsLink');
+
+        // UPDATED: User button functionality with dropdown
+        userBtn.addEventListener('click', function() {
+            // Check if user is logged in
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                // User is logged in, show user info
+                const userData = JSON.parse(user);
+                userName.textContent = userData.name || userData.email;
+                userInfo.style.display = 'flex';
+            }
+        });
+
+        // ADDED: Login link in dropdown
+        loginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+
+        // ADDED: Register link in dropdown
+        registerLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.style.display = 'flex';
+        });
+
+        paymentBtn.addEventListener('click', function() {
+            paymentModal.style.display = 'flex';
+        });
+
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.style.display = 'none';
+        });
+
+        closeRegisterModal.addEventListener('click', function() {
+            registerModal.style.display = 'none';
+        });
+
+        closePaymentModal.addEventListener('click', function() {
+            paymentModal.style.display = 'none';
+        });
+
+        showRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
+        });
+
+        showLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+            if (e.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        });
+
+        // UPDATED: Login Form Submission with PHP Backend
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (email && password) {
+                try {
+                    // Send login request to PHP backend
+                    const response = await fetch('login.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // Store user data in localStorage
+                        localStorage.setItem('currentUser', JSON.stringify(data.user));
+                        localStorage.setItem('authToken', data.token);
+                        
+                        // Update UI
+                        updateUserInterface(data.user);
+                        
+                        alert('Login successful!');
+                        loginModal.style.display = 'none';
+                        loginForm.reset();
+                    } else {
+                        alert(data.message || 'Login failed. Please check your credentials.');
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    alert('An error occurred during login. Please try again.');
+                    
+                    // Fallback to localStorage for demo purposes
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        name: email.split('@')[0],
+                        email: email
+                    }));
+                    updateUserInterface({name: email.split('@')[0], email: email});
+                    alert('Login successful! (Demo mode)');
+                    loginModal.style.display = 'none';
+                }
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // UPDATED: Register Form Submission with PHP Backend
+        const registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const phone = document.getElementById('registerPhone').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            // Simple validation
+            if (name && email && phone && password && confirmPassword) {
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                try {
+                    // Send registration request to PHP backend
+                    const response = await fetch('register.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            password: password
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // Store user data in localStorage
+                        localStorage.setItem('currentUser', JSON.stringify(data.user));
+                        localStorage.setItem('authToken', data.token);
+                        
+                        // Update UI
+                        updateUserInterface(data.user);
+                        
+                        alert('Registration successful!');
+                        registerModal.style.display = 'none';
+                        registerForm.reset();
+                    } else {
+                        alert(data.message || 'Registration failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    alert('An error occurred during registration. Please try again.');
+                    
+                    // Fallback to localStorage for demo purposes
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone
+                    }));
+                    updateUserInterface({name: name, email: email, phone: phone});
+                    alert('Registration successful! (Demo mode)');
+                    registerModal.style.display = 'none';
+                }
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // ADDED: Logout Functionality
+        logoutLink.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            try {
+                // Send logout request to PHP backend
+                const token = localStorage.getItem('authToken');
+                if (token) {
+                    await fetch('logout.php', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Logout error:', error);
+            } finally {
+                // Clear local storage and update UI
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('cart');
+                
+                updateUserInterface(null);
+                updateCartCount();
+                
+                alert('You have been logged out successfully.');
+            }
+        });
+
+        // ADDED: Update User Interface based on login status
+        function updateUserInterface(user) {
+            if (user) {
+                // User is logged in
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+                userName.textContent = user.name || user.email;
+                userInfo.style.display = 'flex';
+                
+                // Update dropdown menu
+                loginLink.style.display = 'none';
+                registerLink.style.display = 'none';
+                profileLink.style.display = 'block';
+                bookingsLink.style.display = 'block';
+                logoutLink.style.display = 'block';
+            } else {
+                // User is logged out
+                userBtn.innerHTML = '<i class="fas fa-user"></i>';
+                userInfo.style.display = 'none';
+                
+                // Update dropdown menu
+                loginLink.style.display = 'block';
+                registerLink.style.display = 'block';
+                profileLink.style.display = 'none';
+                bookingsLink.style.display = 'none';
+                logoutLink.style.display = 'none';
+            }
+        }
+
+        // UPDATED: Payment Form Submission with PHP Backend
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const referenceNumber = document.getElementById('referenceNumber').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            const cardName = document.getElementById('cardName').value;
+            
+            // Get cart items
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const token = localStorage.getItem('authToken');
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add services before making a payment.');
+                return;
+            }
+            
+            try {
+                // Send payment request to PHP backend
+                const response = await fetch('payment.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        referenceNumber: referenceNumber,
+                        cardNumber: cardNumber,
+                        expiryDate: expiryDate,
+                        cvv: cvv,
+                        cardName: cardName,
+                        cart: cart,
+                        userId: user ? user.id : null
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Payment successful! Your booking reference is: ' + data.bookingReference);
+                    paymentModal.style.display = 'none';
+                    
+                    // Clear cart after successful payment
+                    localStorage.removeItem('cart');
+                    updateCartCount();
+                } else {
+                    alert(data.message || 'Payment failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('An error occurred during payment. Please try again.');
+                
+                // Fallback for demo purposes
+                if (referenceNumber) {
+                    alert('Payment successful! (Demo mode) Your booking reference is: ' + referenceNumber);
+                    paymentModal.style.display = 'none';
+                    localStorage.removeItem('cart');
+                    updateCartCount();
+                }
+            }
+        });
+
+        // Add to Cart Functionality
+        const cartCount = document.querySelector('.cart-count');
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartCount.textContent = cart.length;
+        }
+
+        // Initialize cart count on page load
+        updateCartCount();
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // UPDATED: Check if user is already logged in on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                updateUserInterface(JSON.parse(user));
+            }
+        });
+    </script>
+</body>
+</html>

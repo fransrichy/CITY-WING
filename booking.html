@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip - CityWing Shuttles | Namibia's Premier Transportation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-green: #064b2f;
+            --light-green: #0a6e48;
+            --white: #ffffff;
+            --gold: #d4af37;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --medium-gray: #777777;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        .btn-gold:hover {
+            background-color: #e6c158;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--dark-green);
+            color: var(--dark-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--dark-green);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn, .cart-btn, .user-btn, .payment-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .search-btn:hover, .cart-btn:hover, .user-btn:hover, .payment-btn:hover {
+            color: var(--dark-green);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .booking-form-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .booking-steps {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .booking-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background-color: var(--light-gray);
+            color: var(--medium-gray);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .booking-step.active .step-number {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .step-title {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .booking-step.active .step-title {
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--dark-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(6, 75, 47, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .booking-summary {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+            text-align: center;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--dark-green);
+        }
+
+        .summary-note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(6, 75, 47, 0.05);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .summary-note i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        /* Booking Confirmation */
+        .booking-confirmation {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .confirmation-details {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .confirmation-row {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .confirmation-label {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .confirmation-value {
+            width: 60%;
+        }
+
+        .confirmation-reference {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .reference-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-green);
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #e6c158;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .operating-hours {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--light-green);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--medium-gray);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--dark-gray);
+        }
+
+        .modal h2 {
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .search-overlay.active {
+            display: flex;
+        }
+
+        .search-form {
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 20px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .search-submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            cursor: pointer;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--dark-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-summary {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 25px;
+                right: 25px;
+            }
+
+            .back-to-top {
+                bottom: 85px;
+                right: 25px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .booking-form-container {
+                padding: 25px;
+            }
+
+            .booking-steps {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .confirmation-details {
+                padding: 20px;
+            }
+
+            .confirmation-row {
+                flex-direction: column;
+            }
+
+            .confirmation-label, .confirmation-value {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/264811234567?text=Hello%20CityWing%20Shuttles,%20I%E2%80%99d%20like%20to%20book%20a%20service." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+    <a href="index.html">
+        <img src="./Images/HEAD.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="booking.html" class="active">Booking</a></li>
+                    <li><a href="rentals.html">Car Rentals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="user-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="payment-btn" id="paymentBtn">
+                    <i class="fas fa-credit-card"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">
+    <a href="index.html">
+        <img src="./Images/foot.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+            <p>Complete the form below to reserve your shuttle service or tour with CityWing Shuttles.</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking">
+        <div class="container">
+            <h2 class="section-title">Reserve Your Transportation</h2>
+            
+            <div class="booking-container">
+                <div class="booking-form-container">
+                    <div class="booking-steps">
+                        <div class="booking-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Personal Details</div>
+                        </div>
+                        <div class="booking-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Trip Details</div>
+                        </div>
+                        <div class="booking-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Confirmation</div>
+                        </div>
+                    </div>
+                    
+                    <form id="bookingForm">
+                        <!-- Step 1: Personal Details -->
+                        <div class="form-section active" id="step1">
+                            <h3>Personal Information</h3>
+                            <p class="form-description">Please provide your contact information for booking confirmation.</p>
+                            
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="countryCode">Country Code</label>
+                                <select id="countryCode" class="form-control">
+                                    <option value="+264">Namibia (+264)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+1">USA/Canada (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+39">Italy (+39)</option>
+                                    <option value="+34">Spain (+34)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                    <option value="+55">Brazil (+55)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <div></div> <!-- Empty div for spacing -->
+                                <button type="button" class="btn next-step" data-next="2">Next: Trip Details</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Trip Details -->
+                        <div class="form-section" id="step2">
+                            <h3>Trip Information</h3>
+                            <p class="form-description">Provide details about your transportation needs.</p>
+                            
+                            <div class="form-group">
+                                <label for="serviceType">Service Type *</label>
+                                <select id="serviceType" class="form-control" required>
+                                    <option value="">Select a service</option>
+                                    <option value="airport-transfer">Airport Transfer</option>
+                                    <option value="city-tour">City Tour</option>
+                                    <option value="safari-tour">Safari Tour</option>
+                                    <option value="coastal-tour">Coastal Tour</option>
+                                    <option value="private-shuttle">Private Shuttle</option>
+                                    <option value="corporate-service">Corporate Service</option>
+                                    <option value="special-package">Special Package</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="passengers">Number of Passengers *</label>
+                                <select id="passengers" class="form-control" required>
+                                    <option value="1">1 Passenger</option>
+                                    <option value="2">2 Passengers</option>
+                                    <option value="3">3 Passengers</option>
+                                    <option value="4">4 Passengers</option>
+                                    <option value="5">5 Passengers</option>
+                                    <option value="6">6 Passengers</option>
+                                    <option value="7">7+ Passengers (Contact for quote)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="arrivalDate">Arrival/Departure Date *</label>
+                                    <input type="date" id="arrivalDate" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Time *</label>
+                                    <input type="time" id="time" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pickupAddress">Pickup Address *</label>
+                                <textarea id="pickupAddress" class="form-control" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="dropoffAddress">Drop-off Address *</label>
+                                <textarea id="dropoffAddress" class="form-control" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="specialRequests">Special Requests</label>
+                                <textarea id="specialRequests" class="form-control" rows="3" placeholder="Any special requirements or additional information..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="1">Previous</button>
+                                <button type="button" class="btn next-step" data-next="3">Next: Confirmation</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Confirmation -->
+                        <div class="form-section" id="step3">
+                            <h3>Booking Confirmation</h3>
+                            <p class="form-description">Please review your booking details before submitting.</p>
+                            
+                            <div class="confirmation-summary">
+                                <div class="summary-item">
+                                    <strong>Full Name:</strong>
+                                    <span id="confirmName">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Email:</strong>
+                                    <span id="confirmEmail">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Phone:</strong>
+                                    <span id="confirmPhone">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Service Type:</strong>
+                                    <span id="confirmService">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Passengers:</strong>
+                                    <span id="confirmPassengers">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Date & Time:</strong>
+                                    <span id="confirmDateTime">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Pickup Address:</strong>
+                                    <span id="confirmPickup">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Drop-off Address:</strong>
+                                    <span id="confirmDropoff">-</span>
+                                </div>
+                                <div class="summary-item" id="confirmRequestsContainer" style="display: none;">
+                                    <strong>Special Requests:</strong>
+                                    <span id="confirmRequests">-</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" id="termsAgree" class="form-check-input" required>
+                                    <label for="termsAgree" class="form-check-label">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> *</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="2">Previous</button>
+                                <button type="submit" class="btn" id="submitBooking">Complete Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Booking Confirmation Display -->
+                    <div class="booking-confirmation" id="bookingConfirmation">
+                        <div class="confirmation-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 class="confirmation-title">Booking Confirmed!</h2>
+                        <p>Thank you for choosing CityWing Shuttles. Your booking has been successfully submitted.</p>
+                        
+                        <div class="confirmation-details">
+                            <div class="confirmation-row">
+                                <div class="confirmation-label">Booking Reference:</div>
+                                <div class="confirmation-value" id="bookingRef">-</div>
+                            </div>
+                            <div class="confirmation-row">
+                                <div class="confirmation-label">Service:</div>
+                                <div class="confirmation-value" id="finalService">-</div>
+                            </div>
+                            <div class="confirmation-row">
+                                <div class="confirmation-label">Date & Time:</div>
+                                <div class="confirmation-value" id="finalDateTime">-</div>
+                            </div>
+                            <div class="confirmation-row">
+                                <div class="confirmation-label">Passengers:</div>
+                                <div class="confirmation-value" id="finalPassengers">-</div>
+                            </div>
+                            <div class="confirmation-row">
+                                <div class="confirmation-label">Pickup Location:</div>
+                                <div class="confirmation-value" id="finalPickup">-</div>
+                            </div>
+                            
+                            <div class="confirmation-reference">
+                                <p>Please save your booking reference for future communication:</p>
+                                <div class="reference-number" id="referenceNumber">-</div>
+                                <p>A confirmation email has been sent to <span id="finalEmail">-</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="confirmation-actions">
+                            <a href="index.html" class="btn">Return to Home</a>
+                            <a href="services.html" class="btn btn-outline">Book Another Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-summary">
+                    <h3 class="summary-title">Booking Summary</h3>
+                    
+                    <div class="summary-item">
+                        <span>Service:</span>
+                        <span id="summaryService">Not selected</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Passengers:</span>
+                        <span id="summaryPassengers">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Date:</span>
+                        <span id="summaryDate">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Time:</span>
+                        <span id="summaryTime">-</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Estimated Price:</span>
+                        <span id="summaryPrice">-</span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">-</span>
+                    </div>
+                    
+                    <div class="summary-note">
+                        <p><i class="fas fa-info-circle"></i> Final pricing may vary based on specific requirements and route details.</p>
+                        <p><i class="fas fa-clock"></i> You will receive a confirmation email within 24 hours.</p>
+                        <p><i class="fas fa-phone"></i> For urgent bookings, call us at +264 81 123 4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="operating-hours">
+            <div class="container">
+                Operating Hours: 24/7 Service – Open Every Day
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>CityWing Shuttles</h3>
+                    <p>Premium shuttle and tour services in Namibia. Experience luxury, comfort, and reliability with our professional transportation solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="booking.html"><i class="fas fa-chevron-right"></i> Booking</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Airport Transfers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> City Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Safari Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Car Rentals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Independence Ave, Windhoek, Namibia</a></li>
+                        <li><a href="tel:+264611234567"><i class="fas fa-phone"></i> +264 61 123 4567</a></li>
+                        <li><a href="tel:+264811234567"><i class="fas fa-mobile-alt"></i> +264 81 123 4567</a></li>
+                        <li><a href="mailto:info@citywingshuttles.com"><i class="fas fa-envelope"></i> info@citywingshuttles.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Service Available</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CityWing Shuttles. All rights reserved. | Designed with <i class="fas fa-heart"></i> by <a href="https://www.amateta.com" target="_blank" title="Visit Amateta.com">Amateta</a> for Namibia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="close-search" id="closeSearch">
+            <i class="fas fa-times"></i>
+        </div>
+        <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search for services, cars, or destinations...">
+            <button type="submit" class="search-submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRegisterModal">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Register</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePaymentModal">&times;</span>
+            <h2>Payment</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="referenceNumber">Booking Reference Number</label>
+                    <input type="text" id="referenceNumber" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Search Functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const closeSearch = document.getElementById('closeSearch');
+        const searchOverlay = document.getElementById('searchOverlay');
+
+        searchBtn.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+        });
+
+        closeSearch.addEventListener('click', function() {
+            searchOverlay.classList.remove('active');
+        });
+
+        // Modal Functionality
+        const userBtn = document.getElementById('userBtn');
+        const paymentBtn = document.getElementById('paymentBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const paymentModal = document.getElementById('paymentModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+        const closePaymentModal = document.getElementById('closePaymentModal');
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+
+        userBtn.addEventListener('click', function() {
+            // Check if user is logged in
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                alert(`You are logged in as ${user}`);
+            } else {
+                loginModal.style.display = 'flex';
+            }
+        });
+
+        paymentBtn.addEventListener('click', function() {
+            paymentModal.style.display = 'flex';
+        });
+
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.style.display = 'none';
+        });
+
+        closeRegisterModal.addEventListener('click', function() {
+            registerModal.style.display = 'none';
+        });
+
+        closePaymentModal.addEventListener('click', function() {
+            paymentModal.style.display = 'none';
+        });
+
+        showRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
+        });
+
+        showLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+            if (e.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        });
+
+        // Login Form Submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (email && password) {
+                // In a real app, you would validate against a backend
+                // For demo purposes, we'll just store in localStorage
+                localStorage.setItem('currentUser', email);
+                alert('Login successful!');
+                loginModal.style.display = 'none';
+                // Update UI to show logged in state
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Register Form Submission
+        const registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            // Simple validation
+            if (name && email && password && confirmPassword) {
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // In a real app, you would send this to a backend
+                // For demo purposes, we'll just store in localStorage
+                localStorage.setItem('currentUser', email);
+                alert('Registration successful! You are now logged in.');
+                registerModal.style.display = 'none';
+                // Update UI to show logged in state
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Payment Form Submission
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const referenceNumber = document.getElementById('referenceNumber').value;
+            
+            if (referenceNumber) {
+                alert('Payment successful! Your booking reference is: ' + referenceNumber);
+                paymentModal.style.display = 'none';
+                // Clear cart after successful payment
+                localStorage.removeItem('cart');
+                updateCartCount();
+            } else {
+                alert('Please enter a booking reference number');
+            }
+        });
+
+        // Booking Form Functionality
+        const nextStepBtns = document.querySelectorAll('.next-step');
+        const prevStepBtns = document.querySelectorAll('.prev-step');
+        const formSections = document.querySelectorAll('.form-section');
+        const bookingSteps = document.querySelectorAll('.booking-step');
+        const bookingForm = document.getElementById('bookingForm');
+        const bookingConfirmation = document.getElementById('bookingConfirmation');
+
+        // Service pricing data
+        const servicePrices = {
+            'airport-transfer': 45,
+            'city-tour': 75,
+            'safari-tour': 220,
+            'coastal-tour': 150,
+            'private-shuttle': 90,
+            'corporate-service': 120,
+            'special-package': 650
+        };
+
+        // Next step functionality
+        nextStepBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const currentStep = this.closest('.form-section');
+                const nextStepId = this.getAttribute('data-next');
+                const nextStep = document.getElementById(`step${nextStepId}`);
+                
+                // Validate current step before proceeding
+                if (validateStep(currentStep.id)) {
+                    // Update confirmation summary if moving to step 3
+                    if (nextStepId === '3') {
+                        updateConfirmationSummary();
+                    }
+                    
+                    // Hide current step, show next step
+                    currentStep.classList.remove('active');
+                    nextStep.classList.add('active');
+                    
+                    // Update step indicators
+                    updateStepIndicators(nextStepId);
+                }
+            });
+        });
+
+        // Previous step functionality
+        prevStepBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const currentStep = this.closest('.form-section');
+                const prevStepId = this.getAttribute('data-prev');
+                const prevStep = document.getElementById(`step${prevStepId}`);
+                
+                // Hide current step, show previous step
+                currentStep.classList.remove('active');
+                prevStep.classList.add('active');
+                
+                // Update step indicators
+                updateStepIndicators(prevStepId);
+            });
+        });
+
+        // Update step indicators
+        function updateStepIndicators(activeStep) {
+            bookingSteps.forEach(step => {
+                step.classList.remove('active');
+                if (step.getAttribute('data-step') === activeStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        // Validate form step
+        function validateStep(stepId) {
+            const step = document.getElementById(stepId);
+            const inputs = step.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                    
+                    // Remove red border when user starts typing
+                    input.addEventListener('input', function() {
+                        this.style.borderColor = '#ddd';
+                    });
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields before proceeding.');
+            }
+            
+            return isValid;
+        }
+
+        // Update booking summary
+        function updateBookingSummary() {
+            const serviceType = document.getElementById('serviceType').value;
+            const passengers = document.getElementById('passengers').value;
+            const date = document.getElementById('arrivalDate').value;
+            const time = document.getElementById('time').value;
+            
+            // Update service
+            if (serviceType) {
+                const serviceText = document.querySelector(`#serviceType option[value="${serviceType}"]`).textContent;
+                document.getElementById('summaryService').textContent = serviceText;
+                
+                // Update price
+                const basePrice = servicePrices[serviceType] || 0;
+                const passengerMultiplier = passengers > 4 ? 1.2 : 1; // 20% surcharge for 5+ passengers
+                const totalPrice = basePrice * passengerMultiplier;
+                
+                document.getElementById('summaryPrice').textContent = `$${basePrice}`;
+                document.getElementById('summaryTotal').textContent = `$${totalPrice}`;
+            }
+            
+            // Update passengers
+            document.getElementById('summaryPassengers').textContent = passengers;
+            
+            // Update date and time
+            if (date) {
+                const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                document.getElementById('summaryDate').textContent = formattedDate;
+            }
+            
+            if (time) {
+                document.getElementById('summaryTime').textContent = time;
+            }
+        }
+
+        // Update confirmation summary
+        function updateConfirmationSummary() {
+            document.getElementById('confirmName').textContent = document.getElementById('fullName').value;
+            document.getElementById('confirmEmail').textContent = document.getElementById('email').value;
+            
+            const countryCode = document.getElementById('countryCode').value;
+            const phone = document.getElementById('phone').value;
+            document.getElementById('confirmPhone').textContent = `${countryCode} ${phone}`;
+            
+            const serviceType = document.getElementById('serviceType').value;
+            if (serviceType) {
+                const serviceText = document.querySelector(`#serviceType option[value="${serviceType}"]`).textContent;
+                document.getElementById('confirmService').textContent = serviceText;
+            }
+            
+            document.getElementById('confirmPassengers').textContent = document.getElementById('passengers').value;
+            
+            const date = document.getElementById('arrivalDate').value;
+            const time = document.getElementById('time').value;
+            if (date && time) {
+                const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('confirmDateTime').textContent = `${formattedDate} at ${time}`;
+            }
+            
+            document.getElementById('confirmPickup').textContent = document.getElementById('pickupAddress').value;
+            document.getElementById('confirmDropoff').textContent = document.getElementById('dropoffAddress').value;
+            
+            const specialRequests = document.getElementById('specialRequests').value;
+            if (specialRequests) {
+                document.getElementById('confirmRequestsContainer').style.display = 'flex';
+                document.getElementById('confirmRequests').textContent = specialRequests;
+            } else {
+                document.getElementById('confirmRequestsContainer').style.display = 'none';
+            }
+        }
+
+        // Form submission
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate terms agreement
+            if (!document.getElementById('termsAgree').checked) {
+                alert('Please agree to the Terms & Conditions to complete your booking.');
+                return;
+            }
+            
+            // Generate booking reference
+            const bookingRef = 'CW' + Date.now().toString().slice(-6);
+            
+            // Update confirmation details
+            document.getElementById('bookingRef').textContent = bookingRef;
+            document.getElementById('finalService').textContent = document.getElementById('confirmService').textContent;
+            document.getElementById('finalDateTime').textContent = document.getElementById('confirmDateTime').textContent;
+            document.getElementById('finalPassengers').textContent = document.getElementById('confirmPassengers').textContent;
+            document.getElementById('finalPickup').textContent = document.getElementById('confirmPickup').textContent;
+            document.getElementById('finalEmail').textContent = document.getElementById('confirmEmail').textContent;
+            document.getElementById('referenceNumber').textContent = bookingRef;
+            
+            // Store booking in localStorage
+            const bookingData = {
+                reference: bookingRef,
+                name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('serviceType').value,
+                passengers: document.getElementById('passengers').value,
+                date: document.getElementById('arrivalDate').value,
+                time: document.getElementById('time').value,
+                pickup: document.getElementById('pickupAddress').value,
+                dropoff: document.getElementById('dropoffAddress').value,
+                requests: document.getElementById('specialRequests').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to localStorage
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            bookings.push(bookingData);
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            
+            // Hide form, show confirmation
+            bookingForm.style.display = 'none';
+            bookingConfirmation.style.display = 'block';
+            
+            // Simulate email confirmation
+            setTimeout(() => {
+                alert(`Booking confirmation email sent to ${bookingData.email}`);
+            }, 1000);
+        });
+
+        // Update summary when form values change
+        document.getElementById('serviceType').addEventListener('change', updateBookingSummary);
+        document.getElementById('passengers').addEventListener('change', updateBookingSummary);
+        document.getElementById('arrivalDate').addEventListener('change', updateBookingSummary);
+        document.getElementById('time').addEventListener('change', updateBookingSummary);
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('arrivalDate').setAttribute('min', today);
+
+        // Add to Cart Functionality
+        const cartCount = document.querySelector('.cart-count');
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartCount.textContent = cart.length;
+        }
+
+        // Initialize cart count on page load
+        updateCartCount();
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Check if user is already logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            }
+            
+            // Pre-fill form if user is logged in
+            if (user) {
+                document.getElementById('email').value = user;
+            }
+        });
+    </script>
+</body>
+</html>

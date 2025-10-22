@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rentals - CityWing Shuttles | Premium Vehicles in Namibia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-green: #064b2f;
+            --light-green: #0a6e48;
+            --white: #ffffff;
+            --gold: #d4af37;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --medium-gray: #777777;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        .btn-gold:hover {
+            background-color: #e6c158;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--dark-green);
+            color: var(--dark-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--dark-green);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn, .cart-btn, .user-btn, .payment-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .search-btn:hover, .cart-btn:hover, .user-btn:hover, .payment-btn:hover {
+            color: var(--dark-green);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Car Filter Section */
+        .car-filter {
+            padding: 40px 0;
+            background-color: var(--light-gray);
+        }
+
+        .filter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            border-color: var(--dark-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(6, 75, 47, 0.2);
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Cars Section */
+        .cars {
+            padding: 80px 0;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .car-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .car-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .car-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .car-card:hover .car-img img {
+            transform: scale(1.1);
+        }
+
+        .car-content {
+            padding: 25px;
+        }
+
+        .car-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .car-spec {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .car-spec i {
+            margin-right: 5px;
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .car-price {
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .car-price span {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            font-weight: normal;
+        }
+
+        .car-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* Car Details Modal */
+        .car-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .car-modal.active {
+            display: flex;
+        }
+
+        .car-modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-car-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--medium-gray);
+            transition: var(--transition);
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-car-modal:hover {
+            color: var(--dark-gray);
+        }
+
+        .car-modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .car-modal-img {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .car-modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .car-modal-info {
+            padding: 30px;
+        }
+
+        .car-modal-info h2 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .car-modal-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+        }
+
+        .car-modal-description {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .car-modal-specs {
+            margin-bottom: 25px;
+        }
+
+        .car-modal-specs h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .car-modal-features {
+            margin-bottom: 25px;
+        }
+
+        .car-modal-features h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .car-modal-features ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .car-modal-features li {
+            margin-bottom: 8px;
+        }
+
+        .car-modal-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Rental Info Section */
+        .rental-info {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-green);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(6, 75, 47, 0.9), rgba(6, 75, 47, 0.9)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #e6c158;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .operating-hours {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--light-green);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--medium-gray);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--dark-gray);
+        }
+
+        .modal h2 {
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--dark-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(6, 75, 47, 0.2);
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .search-overlay.active {
+            display: flex;
+        }
+
+        .search-form {
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 20px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .search-submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            cursor: pointer;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--dark-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .car-modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .car-modal-img {
+                min-height: 300px;
+            }
+
+            .car-modal-img img {
+                border-radius: 10px 10px 0 0;
+            }
+
+            .filter-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .car-actions {
+                flex-direction: column;
+            }
+
+            .car-modal-actions {
+                flex-direction: column;
+            }
+
+            .filter-container {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 25px;
+                right: 25px;
+            }
+
+            .back-to-top {
+                bottom: 85px;
+                right: 25px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .car-actions .btn {
+                width: 100%;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/264811234567?text=Hello%20CityWing%20Shuttles,%20I%E2%80%99d%20like%20to%20rent%20a%20car." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+    <a href="index.html">
+        <img src="./Images/HEAD.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="rentals.html" class="active">Car Rentals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="user-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="payment-btn" id="paymentBtn">
+                    <i class="fas fa-credit-card"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Car Rentals</h1>
+            <p>Explore Namibia at your own pace with our diverse fleet of well-maintained vehicles for every adventure.</p>
+        </div>
+    </section>
+
+    <!-- Car Filter Section -->
+    <section class="car-filter">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Vehicle</h2>
+            
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="carType">Vehicle Type</label>
+                    <select id="carType" class="filter-select">
+                        <option value="all">All Vehicles</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="4x4">4x4 & Off-Road</option>
+                        <option value="luxury">Luxury</option>
+                        <option value="van">People Carrier</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priceRange">Price Range</label>
+                    <select id="priceRange" class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="budget">Budget ($50-$80/day)</option>
+                        <option value="mid">Mid-Range ($81-$120/day)</option>
+                        <option value="premium">Premium ($121+/day)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="passengerCapacity">Passengers</label>
+                    <select id="passengerCapacity" class="filter-select">
+                        <option value="all">Any Capacity</option>
+                        <option value="1-4">1-4 Passengers</option>
+                        <option value="5-7">5-7 Passengers</option>
+                        <option value="8+">8+ Passengers</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="transmission">Transmission</label>
+                    <select id="transmission" class="filter-select">
+                        <option value="all">Any Transmission</option>
+                        <option value="automatic">Automatic</option>
+                        <option value="manual">Manual</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn" id="applyFilters">Apply Filters</button>
+                <button class="btn btn-outline" id="resetFilters">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Section -->
+    <section class="cars">
+        <div class="container">
+            <h2 class="section-title">Our Vehicle Fleet</h2>
+            <div class="cars-grid" id="carsGrid">
+                <!-- Car cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Details Modal -->
+    <div class="car-modal" id="carModal">
+        <div class="car-modal-content">
+            <span class="close-car-modal" id="closeCarModal">&times;</span>
+            <div class="car-modal-body" id="carModalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Rental Info Section -->
+    <section class="rental-info">
+        <div class="container">
+            <h2 class="section-title">Why Rent With CityWing?</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Fully Insured</h3>
+                    <p>All our rental vehicles come with comprehensive insurance coverage for your peace of mind during your travels.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Well Maintained</h3>
+                    <p>Our fleet undergoes regular maintenance and safety checks to ensure reliability on Namibia's diverse roads.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>GPS Navigation</h3>
+                    <p>All vehicles include GPS navigation systems with pre-loaded points of interest and popular routes.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our support team is available round the clock to assist with any issues during your rental period.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Fuel Options</h3>
+                    <p>Choose between full-to-full or pre-purchase fuel options for added convenience.</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Multiple Locations</h3>
+                    <p>Pick up and drop off at multiple locations including airports, hotels, and our city centers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Explore Namibia?</h2>
+            <p>Book your rental vehicle today and experience the freedom of exploring Namibia's breathtaking landscapes at your own pace.</p>
+            <a href="booking.html" class="btn btn-gold">Reserve Your Vehicle</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="operating-hours">
+            <div class="container">
+                Operating Hours: 24/7 Service – Open Every Day
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+    <a href="index.html">
+        <img src="./Images/foot.png" alt="CityWing Shuttles Home">
+    </a>
+</div>
+                    <p>Premium shuttle and tour services in Namibia. Experience luxury, comfort, and reliability with our professional transportation solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="booking.html"><i class="fas fa-chevron-right"></i> Booking</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Airport Transfers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> City Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Safari Tours</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Car Rentals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Independence Ave, Windhoek, Namibia</a></li>
+                        <li><a href="tel:+264611234567"><i class="fas fa-phone"></i> +264 61 123 4567</a></li>
+                        <li><a href="tel:+264811234567"><i class="fas fa-mobile-alt"></i> +264 81 123 4567</a></li>
+                        <li><a href="mailto:info@citywingshuttles.com"><i class="fas fa-envelope"></i> info@citywingshuttles.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Service Available</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CityWing Shuttles. All rights reserved. | Designed with <i class="fas fa-heart"></i> by <a href="https://www.amateta.com" target="_blank" title="Visit Amateta.com">Amateta</a> for Namibia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="close-search" id="closeSearch">
+            <i class="fas fa-times"></i>
+        </div>
+        <form class="search-form">
+            <input type="text" class="search-input" placeholder="Search for services, cars, or destinations...">
+            <button type="submit" class="search-submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRegisterModal">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Register</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closePaymentModal">&times;</span>
+            <h2>Payment</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="referenceNumber">Booking Reference Number</label>
+                    <input type="text" id="referenceNumber" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" class="form-control" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Cars Data
+        const carsData = [
+            {
+                id: 1,
+                name: "Toyota Corolla",
+                type: "sedan",
+                price: 65,
+                image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+                description: "Reliable and fuel-efficient sedan perfect for city driving and short trips.",
+                specs: {
+                    passengers: 5,
+                    luggage: 2,
+                    transmission: "Automatic",
+                    fuel: "Petrol",
+                    ac: "Yes"
+                },
+                features: ["Air Conditioning", "Bluetooth", "GPS Navigation", "Cruise Control"],
+                badge: "Popular"
+            },
+            {
+                id: 2,
+                name: "Toyota RAV4",
+                type: "suv",
+                price: 85,
+                image: "https://images.unsplash.com/photo-1566479137142-0c17d0a82d4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Comfortable SUV with ample space for both passengers and luggage.",
+                specs: {
+                    passengers: 5,
+                    luggage: 3,
+                    transmission: "Automatic",
+                    fuel: "Petrol",
+                    ac: "Yes"
+                },
+                features: ["Air Conditioning", "Touchscreen Display", "Rear Camera", "Alloy Wheels"],
+                badge: "Family Choice"
+            },
+            {
+                id: 3,
+                name: "Toyota Land Cruiser",
+                type: "4x4",
+                price: 150,
+                image: "https://images.unsplash.com/photo-1563720223485-40f9d6e5c8a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Rugged 4x4 perfect for Namibia's challenging terrain and safari adventures.",
+                specs: {
+                    passengers: 7,
+                    luggage: 4,
+                    transmission: "Automatic",
+                    fuel: "Diesel",
+                    ac: "Yes"
+                },
+                features: ["4WD", "Roof Rack", "All-Terrain Tires", "Cool Box"],
+                badge: "Off-Road"
+            },
+            {
+                id: 4,
+                name: "Mercedes-Benz E-Class",
+                type: "luxury",
+                price: 180,
+                image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80",
+                description: "Premium luxury sedan for business travel or special occasions.",
+                specs: {
+                    passengers: 5,
+                    luggage: 3,
+                    transmission: "Automatic",
+                    fuel: "Petrol",
+                    ac: "Dual Zone"
+                },
+                features: ["Leather Seats", "Premium Sound", "Panoramic Roof", "Heated Seats"],
+                badge: "Luxury"
+            },
+            {
+                id: 5,
+                name: "Toyota Hiace",
+                type: "van",
+                price: 120,
+                image: "https://images.unsplash.com/photo-1621135802920-133df287f89c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Spacious people carrier ideal for group travel or family vacations.",
+                specs: {
+                    passengers: 12,
+                    luggage: 6,
+                    transmission: "Manual",
+                    fuel: "Diesel",
+                    ac: "Yes"
+                },
+                features: ["Spacious Interior", "Sliding Doors", "Multiple AC Vents", "Audio System"],
+                badge: "Group Travel"
+            },
+            {
+                id: 6,
+                name: "Ford Ranger",
+                type: "4x4",
+                price: 110,
+                image: "https://images.unsplash.com/photo-1621135802920-133df287f89c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                description: "Versatile pickup truck with 4x4 capability for work or adventure.",
+                specs: {
+                    passengers: 5,
+                    luggage: "Large Bed",
+                    transmission: "Manual",
+                    fuel: "Diesel",
+                    ac: "Yes"
+                },
+                features: ["4WD", "Towing Capacity", "Spacious Cabin", "Durable Build"],
+                badge: "Utility"
+            }
+        ];
+
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('hidden');
+            
+            // Initialize cars
+            renderCars();
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Search Functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const closeSearch = document.getElementById('closeSearch');
+        const searchOverlay = document.getElementById('searchOverlay');
+
+        searchBtn.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+        });
+
+        closeSearch.addEventListener('click', function() {
+            searchOverlay.classList.remove('active');
+        });
+
+        // Modal Functionality
+        const userBtn = document.getElementById('userBtn');
+        const paymentBtn = document.getElementById('paymentBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const paymentModal = document.getElementById('paymentModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+        const closePaymentModal = document.getElementById('closePaymentModal');
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+
+        userBtn.addEventListener('click', function() {
+            // Check if user is logged in
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                alert(`You are logged in as ${user}`);
+            } else {
+                loginModal.style.display = 'flex';
+            }
+        });
+
+        paymentBtn.addEventListener('click', function() {
+            paymentModal.style.display = 'flex';
+        });
+
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.style.display = 'none';
+        });
+
+        closeRegisterModal.addEventListener('click', function() {
+            registerModal.style.display = 'none';
+        });
+
+        closePaymentModal.addEventListener('click', function() {
+            paymentModal.style.display = 'none';
+        });
+
+        showRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
+        });
+
+        showLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+            if (e.target === paymentModal) {
+                paymentModal.style.display = 'none';
+            }
+        });
+
+        // Login Form Submission
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (email && password) {
+                // In a real app, you would validate against a backend
+                // For demo purposes, we'll just store in localStorage
+                localStorage.setItem('currentUser', email);
+                alert('Login successful!');
+                loginModal.style.display = 'none';
+                // Update UI to show logged in state
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Register Form Submission
+        const registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            // Simple validation
+            if (name && email && password && confirmPassword) {
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // In a real app, you would send this to a backend
+                // For demo purposes, we'll just store in localStorage
+                localStorage.setItem('currentUser', email);
+                alert('Registration successful! You are now logged in.');
+                registerModal.style.display = 'none';
+                // Update UI to show logged in state
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Payment Form Submission
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const referenceNumber = document.getElementById('referenceNumber').value;
+            
+            if (referenceNumber) {
+                alert('Payment successful! Your booking reference is: ' + referenceNumber);
+                paymentModal.style.display = 'none';
+                // Clear cart after successful payment
+                localStorage.removeItem('cart');
+                updateCartCount();
+            } else {
+                alert('Please enter a booking reference number');
+            }
+        });
+
+        // Car Filtering
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+
+        applyFiltersBtn.addEventListener('click', function() {
+            const carType = document.getElementById('carType').value;
+            const priceRange = document.getElementById('priceRange').value;
+            const passengerCapacity = document.getElementById('passengerCapacity').value;
+            const transmission = document.getElementById('transmission').value;
+            
+            filterCars(carType, priceRange, passengerCapacity, transmission);
+        });
+
+        resetFiltersBtn.addEventListener('click', function() {
+            document.getElementById('carType').value = 'all';
+            document.getElementById('priceRange').value = 'all';
+            document.getElementById('passengerCapacity').value = 'all';
+            document.getElementById('transmission').value = 'all';
+            
+            renderCars();
+        });
+
+        // Filter Cars
+        function filterCars(carType, priceRange, passengerCapacity, transmission) {
+            let filteredCars = carsData;
+            
+            // Filter by car type
+            if (carType !== 'all') {
+                filteredCars = filteredCars.filter(car => car.type === carType);
+            }
+            
+            // Filter by price range
+            if (priceRange !== 'all') {
+                if (priceRange === 'budget') {
+                    filteredCars = filteredCars.filter(car => car.price >= 50 && car.price <= 80);
+                } else if (priceRange === 'mid') {
+                    filteredCars = filteredCars.filter(car => car.price >= 81 && car.price <= 120);
+                } else if (priceRange === 'premium') {
+                    filteredCars = filteredCars.filter(car => car.price >= 121);
+                }
+            }
+            
+            // Filter by passenger capacity
+            if (passengerCapacity !== 'all') {
+                if (passengerCapacity === '1-4') {
+                    filteredCars = filteredCars.filter(car => car.specs.passengers <= 4);
+                } else if (passengerCapacity === '5-7') {
+                    filteredCars = filteredCars.filter(car => car.specs.passengers >= 5 && car.specs.passengers <= 7);
+                } else if (passengerCapacity === '8+') {
+                    filteredCars = filteredCars.filter(car => car.specs.passengers >= 8);
+                }
+            }
+            
+            // Filter by transmission
+            if (transmission !== 'all') {
+                filteredCars = filteredCars.filter(car => car.specs.transmission.toLowerCase() === transmission.toLowerCase());
+            }
+            
+            renderCars(filteredCars);
+        }
+
+        // Render Cars
+        function renderCars(cars = carsData) {
+            const carsGrid = document.getElementById('carsGrid');
+            carsGrid.innerHTML = '';
+            
+            if (cars.length === 0) {
+                carsGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                        <h3>No vehicles match your filters</h3>
+                        <p>Try adjusting your search criteria or <a href="#" id="resetFiltersLink">reset filters</a></p>
+                    </div>
+                `;
+                
+                document.getElementById('resetFiltersLink').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    resetFiltersBtn.click();
+                });
+                
+                return;
+            }
+            
+            cars.forEach(car => {
+                const carCard = document.createElement('div');
+                carCard.className = 'car-card';
+                carCard.setAttribute('data-type', car.type);
+                
+                carCard.innerHTML = `
+                    ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
+                    <div class="car-img">
+                        <img src="${car.image}" alt="${car.name}">
+                    </div>
+                    <div class="car-content">
+                        <h3>${car.name}</h3>
+                        <div class="car-specs">
+                            <div class="car-spec">
+                                <i class="fas fa-users"></i>
+                                <span>${car.specs.passengers} Passengers</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-suitcase"></i>
+                                <span>${car.specs.luggage} ${typeof car.specs.luggage === 'number' ? 'Bags' : ''}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-cog"></i>
+                                <span>${car.specs.transmission}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span>${car.specs.fuel}</span>
+                            </div>
+                        </div>
+                        <div class="car-price">$${car.price} <span>/ day</span></div>
+                        <div class="car-actions">
+                            <button class="btn view-details" data-id="${car.id}">View Details</button>
+                            <button class="whatsapp-btn" data-car="${car.name}">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn btn-gold add-to-cart" data-car="${car.name}" data-price="${car.price}">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                
+                carsGrid.appendChild(carCard);
+            });
+            
+            // Add event listeners to new buttons
+            addCarEventListeners();
+        }
+
+        // Add event listeners to car buttons
+        function addCarEventListeners() {
+            // View Details buttons
+            const viewDetailsBtns = document.querySelectorAll('.view-details');
+            viewDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const carId = parseInt(this.getAttribute('data-id'));
+                    openCarModal(carId);
+                });
+            });
+            
+            // WhatsApp buttons
+            const whatsappBtns = document.querySelectorAll('.whatsapp-btn');
+            whatsappBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const car = this.getAttribute('data-car');
+                    const message = `Hello CityWing Shuttles, I'd like to rent a ${car}.`;
+                    const encodedMessage = encodeURIComponent(message);
+                    window.open(`https://wa.me/264811234567?text=${encodedMessage}`, '_blank');
+                });
+            });
+            
+            // Add to Cart buttons
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const car = this.getAttribute('data-car');
+                    const price = this.getAttribute('data-price');
+                    
+                    // Get current cart from localStorage
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    
+                    // Add item to cart
+                    cart.push({
+                        item: car,
+                        price: price,
+                        type: 'car rental'
+                    });
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    // Update cart count
+                    updateCartCount();
+                    
+                    // Show confirmation
+                    alert(`${car} has been added to your cart!`);
+                });
+            });
+        }
+
+        // Open Car Modal
+        function openCarModal(carId) {
+            const car = carsData.find(c => c.id === carId);
+            if (!car) return;
+            
+            const carModal = document.getElementById('carModal');
+            const carModalBody = document.getElementById('carModalBody');
+            
+            carModalBody.innerHTML = `
+                <div class="car-modal-img">
+                    <img src="${car.image}" alt="${car.name}">
+                </div>
+                <div class="car-modal-info">
+                    <h2>${car.name}</h2>
+                    <div class="car-modal-price">$${car.price} <span>/ day</span></div>
+                    <div class="car-modal-description">
+                        ${car.description}
+                    </div>
+                    <div class="car-modal-specs">
+                        <h3>Specifications</h3>
+                        <div class="specs-grid">
+                            <div class="car-spec">
+                                <i class="fas fa-users"></i>
+                                <span><strong>Passengers:</strong> ${car.specs.passengers}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-suitcase"></i>
+                                <span><strong>Luggage:</strong> ${car.specs.luggage} ${typeof car.specs.luggage === 'number' ? 'bags' : ''}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-cog"></i>
+                                <span><strong>Transmission:</strong> ${car.specs.transmission}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-gas-pump"></i>
+                                <span><strong>Fuel Type:</strong> ${car.specs.fuel}</span>
+                            </div>
+                            <div class="car-spec">
+                                <i class="fas fa-snowflake"></i>
+                                <span><strong>Air Conditioning:</strong> ${car.specs.ac}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="car-modal-features">
+                        <h3>Features</h3>
+                        <ul>
+                            ${car.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="car-modal-actions">
+                        <a href="booking.html" class="btn">Book Now</a>
+                        <button class="whatsapp-btn" data-car="${car.name}" style="padding: 12px 20px;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-gold add-to-cart" data-car="${car.name}" data-price="${car.price}">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            
+            carModal.classList.add('active');
+            
+            // Add event listeners to modal buttons
+            const modalWhatsappBtn = carModalBody.querySelector('.whatsapp-btn');
+            const modalAddToCartBtn = carModalBody.querySelector('.add-to-cart');
+            
+            modalWhatsappBtn.addEventListener('click', function() {
+                const car = this.getAttribute('data-car');
+                const message = `Hello CityWing Shuttles, I'd like to rent a ${car}.`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/264811234567?text=${encodedMessage}`, '_blank');
+            });
+            
+            modalAddToCartBtn.addEventListener('click', function() {
+                const car = this.getAttribute('data-car');
+                const price = this.getAttribute('data-price');
+                
+                // Get current cart from localStorage
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                // Add item to cart
+                cart.push({
+                    item: car,
+                    price: price,
+                    type: 'car rental'
+                });
+                
+                // Save back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update cart count
+                updateCartCount();
+                
+                // Show confirmation
+                alert(`${car} has been added to your cart!`);
+                
+                // Close modal
+                carModal.classList.remove('active');
+            });
+        }
+
+        // Close Car Modal
+        const closeCarModal = document.getElementById('closeCarModal');
+        const carModal = document.getElementById('carModal');
+
+        closeCarModal.addEventListener('click', function() {
+            carModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === carModal) {
+                carModal.classList.remove('active');
+            }
+        });
+
+        // Add to Cart Functionality
+        const cartCount = document.querySelector('.cart-count');
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartCount.textContent = cart.length;
+        }
+
+        // Initialize cart count on page load
+        updateCartCount();
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Check if user is already logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
