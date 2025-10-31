@@ -1,0 +1,12 @@
+[31-Oct-2025 13:08:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php:30
+Stack trace:
+#0 {main}
+  thrown in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php on line 30
+[31-Oct-2025 13:08:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php:30
+Stack trace:
+#0 {main}
+  thrown in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php on line 30
+[31-Oct-2025 13:08:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php:30
+Stack trace:
+#0 {main}
+  thrown in C:\Users\A TECHS ADMIN\Desktop\WEB DEVELOPOMENT\CITYWING WEBSITE\register.php on line 30
